@@ -1,0 +1,229 @@
+/* ============================================================
+   ExploreCatalogue.module.css
+   ============================================================ */
+
+/* ---------- Section shell ---------- */
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* content sits on the right */
+}
+
+.bodytext {
+  color: #fff;
+}
+
+/* ---------- Background ---------- */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark base overlay */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+}
+
+/* Atmospheric emerald glow from bottom-left */
+.bgGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 20% 85%,
+    rgba(20, 90, 40, 0.45) 0%,
+    transparent 70%
+  );
+}
+
+/* ---------- Character ---------- */
+.characterWrap {
+  position: absolute;
+  left: -2%; /* bleed slightly off-left edge */
+  bottom: -20px;
+  width: clamp(420px, 65vw, 1000px);
+  height: clamp(650px, 110vh, 1300px);
+  z-index: 2;
+  will-change: transform;
+  /* CSS fallback animation as graceful degradation */
+  /* JS animation overrides this */
+}
+
+.character {
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 0 40px rgba(30, 120, 60, 0.35))
+    drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
+}
+
+/* Ground shadow ellipse for depth */
+.characterShadow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.55) 0%, transparent 80%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* ---------- Content block ---------- */
+.content {
+  position: relative;
+  z-index: 3;
+  width: clamp(300px, 46%, 640px);
+  margin-right: clamp(24px, 6vw, 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dividerTop {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  margin-bottom: 36px;
+}
+
+/* ---------- Heading ---------- */
+.heading {
+  font-family: "Bebas Neue", "Anton", "Impact", sans-serif;
+  font-size: clamp(52px, 7vw, 100px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow:
+    0 0 80px rgba(40, 200, 80, 0.25),
+    0 4px 24px rgba(0, 0, 0, 0.7);
+  margin: 0 0 24px;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  margin-bottom: 32px;
+}
+
+/* ---------- CTA button ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+  margin-top: 12px;
+  padding: 14px 32px;
+  background: #3ddc5c;
+  color: #000;
+  font-family: "Barlow", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  background: #5fffb0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(61, 220, 92, 0.45);
+}
+
+.ctaArrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.cta:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .section {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  .characterWrap {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(260px, 80vw, 480px);
+    height: clamp(380px, 75vw, 640px);
+    bottom: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 3;
+    width: 90%;
+    margin: 0 auto 48px;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    border-radius: 12px;
+    padding: 28px 20px 20px;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .body {
+    text-align: center;
+    align-self: center;
+  }
+
+  .cta {
+    align-self: center;
+  }
+}
