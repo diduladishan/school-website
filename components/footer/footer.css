@@ -78,3 +78,13 @@
     font-size: 30px;
   }
 }
+
+.developer-link {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 4px;
+}
+
+.developer-link:hover {
+  text-decoration: underline;
+}

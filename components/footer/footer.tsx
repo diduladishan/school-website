@@ -165,9 +165,19 @@ export default function Footer() {
       {/* Second container */}
       <div className="container mx-auto px-[36px] flex flex-col font-semibold sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center justify-center gap-x-[0.7em] mb-[1.5em] sm:mb-0">
-          <RiCopyrightFill className="size-[1.5em]" />
+          {/* <RiCopyrightFill className="size-[1.5em]" /> */}
           {/* <p>Copyright {new Date().getFullYear()}. All Rights Reserved.</p> */}
-          <p>Developed with ❤️ by Didula Nanayakkara</p>
+<p>
+  Developed with ❤️ by 
+   <a 
+    href="https://didulanportfolio.vercel.app/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="developer-link"
+  >
+    Didula Nanayakkara
+  </a>
+</p>
         </div>
         <div className="flex flex-col items-center justify-between gap-x-[1em] sm:flex-row sm:items-start sm:gap-x-[2em] px-[2.86em]">
           <div className="flex gap-x-[0.7em] sm:gap-x-[1em] sm:mb-0">
