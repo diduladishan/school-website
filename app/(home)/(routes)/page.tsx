@@ -42,7 +42,7 @@ export default function Home() {
       <SwiperCarousel />
       <BestSelling />
       <Catalog />
-      <ExploreCatalogue />
+      {/* <ExploreCatalogue /> */}
       <VerticalCarousel />
       <Footer />
     </>
